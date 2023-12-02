@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { SpamClassifierComponent } from './components/spam-classifier/spam-classifier.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'spam_filtering_analysis_visualization';
+  onConfirmClick(spamClassifier: SpamClassifierComponent): void {
+    if (spamClassifier) {
+      const textAreaValue = spamClassifier.getTextAreaValue();
+      console.log('Text in the textarea:', textAreaValue);
+      // Perform any other actions with the text as needed
+    }
+  }
 }
