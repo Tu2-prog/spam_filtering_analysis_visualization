@@ -5,12 +5,16 @@ import { AppComponent } from './app.component';
 import { SpamClassifierComponent } from './components/spam-classifier/spam-classifier.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DetailsComponent } from './views/details/details.component';
+import { HomeComponent } from './views/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
     SpamClassifierComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    DetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
