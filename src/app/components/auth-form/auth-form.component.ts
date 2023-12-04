@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './auth-form.component.css'
 })
 export class AuthFormComponent {
-
+  enteredToken: string = ''
+  validationResult: boolean = false;
+  validateToken(): boolean {
+    this.validationResult = true;
+    return this.validationResult;
+  }
 }
