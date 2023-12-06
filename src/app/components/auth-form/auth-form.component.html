@@ -1,0 +1,7 @@
+<div class="validation-container">
+    <input id="token-input" [(ngModel)]="enteredToken" placeholder="Enter Access Token" />
+    <button id="validate-button" (click)="validateToken()">Validate</button>
+    <div *ngIf="validationResult !== null" class="result-message">
+      {{ validationResult ? 'Access Granted' : 'Invalid Token' }}
+    </div>
+</div>
