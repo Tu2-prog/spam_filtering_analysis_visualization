@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-form',
@@ -7,9 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AuthFormComponent {
   enteredToken: string = ''
-  validationResult: boolean = false;
-  validateToken(): boolean {
-    this.validationResult = true;
-    return this.validationResult;
+
+  constructor(private router: Router) {}
+  validateToken(): void {
+    //this.validationResult = this.enteredToken == "hello";
+    // return this.validationResult;
+    if(this.enteredToken == "hello"){
+      localStorage.setItem('token', Math.random.toString())
+      this.router.navigate(["home"])
+    }
   }
 }
