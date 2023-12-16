@@ -1,6 +1,8 @@
 import { Component, Injectable } from '@angular/core';
 import { SpamClassifierComponent } from '../../components/spam-classifier/spam-classifier.component';
-import { environment } from '../../../environments/environment';
+import axios from 'axios';
+import { apiEndpoints } from '../../endpoints/api';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,15 +10,24 @@ import { environment } from '../../../environments/environment';
 })
 @Injectable()
 export class HomeComponent {
+  constructor() {}
+
   onConfirmClick(spamClassifier: SpamClassifierComponent): void {
     if (spamClassifier) {
       const textAreaValue = spamClassifier.getTextAreaValue();
       const request = {
-        text: spamClassifier.getTextAreaValue()
+        text: textAreaValue
       }
-      console.log('Text in the textarea:', textAreaValue);
-      console.log('Environment Variable ', environment.apiURL);
-      console.log('Request Body: ', request);
+      const url = apiEndpoints + "/classify";
+      axios.post(url, request)
+        .then((response: any) => {
+          // Hier kannst du auf die Vorhersage zugreifen
+          const prediction = response.data.prediction;
+          console.log("Vorhersage:", prediction);
+        })
+        .catch((error) => {
+          console.error("Fehler:", error);
+        });
     }
   }
 }
