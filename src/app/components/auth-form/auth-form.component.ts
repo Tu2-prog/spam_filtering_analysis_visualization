@@ -11,8 +11,6 @@ export class AuthFormComponent {
 
   constructor(private router: Router) {}
   validateToken(): void {
-    //this.validationResult = this.enteredToken == "hello";
-    // return this.validationResult;
     if(this.enteredToken == "hello"){
       localStorage.setItem('token', Math.random.toString())
       this.router.navigate(["home"])
