@@ -1,4 +1,4 @@
-FROM node:latest AS serve
+FROM node:21-alpine3.17 AS serve
 
 WORKDIR /app
 

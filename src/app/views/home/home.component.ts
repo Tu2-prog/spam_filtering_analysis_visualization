@@ -20,7 +20,7 @@ export class HomeComponent {
       }
       const url = apiEndpoints + "/classify";
       axios.post(url, request)
-        .then((response: any) => {
+        .then((response) => {
           // Hier kannst du auf die Vorhersage zugreifen
           const prediction = response.data.prediction;
           console.log("Vorhersage:", prediction);
