@@ -1,7 +1,16 @@
 <app-navbar></app-navbar>
-<div style="text-align: center;">
+<div style="margin-top: 9rem;" class="classifier-box">
     <app-spam-classifier id="spam-text-box" #spamClassifier></app-spam-classifier>
     <br/>
-    <button (click)="onConfirmClick(spamClassifier)">Classify</button>
+    <div style="text-align: center;">
+        <button (click)="onConfirmClick(spamClassifier)">Classify</button>
+        <div class="radio">
+            <input type="radio" name="option" id="option1" [(ngModel)]="selectedOption" value=0>
+            <label for="option1">Count Vectorizer</label>
+
+            <input type="radio" name="option" id="option2" [(ngModel)]="selectedOption" value=1>
+            <label for="option2">Naive Bayes</label>
+        </div>
+    </div>
 </div>
 <app-footer></app-footer>

@@ -4,3 +4,13 @@ textarea{
     margin-right: auto;
     margin-top: 20px;
 }
+
+#freeform {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}

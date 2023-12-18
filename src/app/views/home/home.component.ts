@@ -10,15 +10,19 @@ import { apiEndpoints } from '../../endpoints/api';
 })
 @Injectable()
 export class HomeComponent {
+  selectedOption: string = "";
+
   constructor() {}
 
   onConfirmClick(spamClassifier: SpamClassifierComponent): void {
     if (spamClassifier) {
       const textAreaValue = spamClassifier.getTextAreaValue();
       const request = {
-        text: textAreaValue
+        text: textAreaValue,
+        option: this.selectedOption
       }
       const url = apiEndpoints + "/classify";
+      console.log(request)
       axios.post(url, request)
         .then((response) => {
           // Hier kannst du auf die Vorhersage zugreifen
