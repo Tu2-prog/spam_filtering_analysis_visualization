@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
-<app-spam-classifier id="spam-text-box" #spamClassifier></app-spam-classifier>
-<br/>
-<button (click)="onConfirmClick(spamClassifier)">Send</button>
+<div style="text-align: center;">
+    <app-spam-classifier id="spam-text-box" #spamClassifier></app-spam-classifier>
+    <br/>
+    <button (click)="onConfirmClick(spamClassifier)">Classify</button>
+</div>
 <app-footer></app-footer>
