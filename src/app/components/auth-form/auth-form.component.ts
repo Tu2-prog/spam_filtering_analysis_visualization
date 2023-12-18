@@ -1,21 +1,38 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { apiEndpoints } from '../../endpoints/api';
+import axios from 'axios';
 
 @Component({
   selector: 'app-auth-form',
   templateUrl: './auth-form.component.html',
-  styleUrl: './auth-form.component.css'
+  styleUrls: ['./auth-form.component.css']
 })
 export class AuthFormComponent {
-  enteredToken: string = ''
+  enteredToken: string = '';
+
+  async validateTokenByRequest(url: string, enteredToken: string): Promise<boolean> {
+    const request = {
+      "token": enteredToken
+    };
+
+    try {
+      const response = await axios.post(url, request);
+      const valid: boolean = response.data.validated;
+      return valid;
+    } catch (error) {
+      window.alert("An error occurred while validating the token");
+      return false;
+    }
+  }
 
   constructor(private router: Router) {}
-  validateToken(): void {
-    //this.validationResult = this.enteredToken == "hello";
-    // return this.validationResult;
-    if(this.enteredToken == "hello"){
-      localStorage.setItem('token', Math.random.toString())
-      this.router.navigate(["home"])
+
+  async validateToken(): Promise<void> {
+    const url = apiEndpoints + "/auth";
+    if (await this.validateTokenByRequest(url, this.enteredToken)) {
+      localStorage.setItem('token', Math.random().toString());
+      this.router.navigate(["home"]);
     }
   }
 }

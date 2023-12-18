@@ -1,17 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { SpamClassifierComponent } from '../../components/spam-classifier/spam-classifier.component';
+import axios from 'axios';
+import { apiEndpoints } from '../../endpoints/api';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+@Injectable()
 export class HomeComponent {
+  constructor() {}
+
   onConfirmClick(spamClassifier: SpamClassifierComponent): void {
     if (spamClassifier) {
       const textAreaValue = spamClassifier.getTextAreaValue();
-      console.log('Text in the textarea:', textAreaValue);
-      // Perform any other actions with the text as needed
+      const request = {
+        text: textAreaValue
+      }
+      const url = apiEndpoints + "/classify";
+      axios.post(url, request)
+        .then((response) => {
+          // Hier kannst du auf die Vorhersage zugreifen
+          const prediction = response.data.prediction;
+          console.log("Vorhersage:", prediction);
+        })
+        .catch((error) => {
+          console.error("Fehler:", error);
+        });
     }
   }
 }

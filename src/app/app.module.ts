@@ -10,6 +10,7 @@ import { DetailsComponent } from './views/details/details.component';
 import { HomeComponent } from './views/home/home.component';
 import { AuthentificationComponent } from './views/authentification/authentification.component';
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,7 @@ import { AuthFormComponent } from './components/auth-form/auth-form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
