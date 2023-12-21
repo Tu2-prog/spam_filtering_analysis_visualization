@@ -1,27 +1,21 @@
 # SpamFilteringAnalysisVisualization
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+This component was created as a result of the personal Machine Learning project for classifying mail texts as spam or ham.
 
-## Development server
+# Technical description
+## What does the microservice do?
+The spam_filtering_analysis_visualisation microservice is a web-based service for classifying provided mail texts as spam or ham.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Which technologies are used
 
-## Code scaffolding
+<ul>
+    <li/> Docker
+    <li/> Angular
+    <li/> Bootstrap
+</ul>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### How to install it
+This ms needs a running instance of the spam_filtering_analysis and spam_filter_storage container
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Notes for developers
+If you are interested in using this service it is important to note, that this micro service only presents the frontend for a plethora of other micro services.
