@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { apiEndpoints } from '../../endpoints/api';
+import { apiEndpoint } from '../../endpoints/api';
 import axios from 'axios';
 
 @Component({
@@ -29,7 +29,7 @@ export class AuthFormComponent {
   constructor(private router: Router) {}
 
   async validateToken(): Promise<void> {
-    const url = apiEndpoints + "/auth";
+    const url = apiEndpoint + "/auth";
     if (await this.validateTokenByRequest(url, this.enteredToken)) {
       localStorage.setItem('token', Math.random().toString());
       this.router.navigate(["home"]);
