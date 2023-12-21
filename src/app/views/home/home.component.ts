@@ -35,7 +35,7 @@ export class HomeComponent {
           console.error("Error:", error);
         });
       axios.post(storeUrl, request)
-      .then((response) => {
+      .then(() => {
         console.log("Storing was succesfull");
       })
       .catch((error) => {
