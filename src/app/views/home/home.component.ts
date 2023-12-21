@@ -1,7 +1,8 @@
 import { Component, Injectable } from '@angular/core';
 import { SpamClassifierComponent } from '../../components/spam-classifier/spam-classifier.component';
 import axios from 'axios';
-import { apiEndpoints } from '../../endpoints/api';
+import { apiEndpoint } from '../../endpoints/api';
+import { storageEndpoint } from '../../endpoints/api';
 
 @Component({
   selector: 'app-home',
@@ -18,20 +19,28 @@ export class HomeComponent {
     if (spamClassifier) {
       const textAreaValue = spamClassifier.getTextAreaValue();
       const request = {
-        text: textAreaValue,
-        option: this.selectedOption
+        content: textAreaValue,
+        classifier: this.selectedOption
       }
-      const url = apiEndpoints + "/classify";
+      const classifyUrl = apiEndpoint + "/classify";
+      const storeUrl = storageEndpoint + "/create";
       console.log(request)
-      axios.post(url, request)
+      axios.post(classifyUrl, request)
         .then((response) => {
           // Hier kannst du auf die Vorhersage zugreifen
           const prediction = response.data.prediction;
-          console.log("Vorhersage:", prediction);
+          console.log("Prediction:", prediction);
         })
         .catch((error) => {
-          console.error("Fehler:", error);
+          console.error("Error:", error);
         });
+      axios.post(storeUrl, request)
+      .then((response) => {
+        console.log("Storing was succesfull");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
     }
   }
 }
