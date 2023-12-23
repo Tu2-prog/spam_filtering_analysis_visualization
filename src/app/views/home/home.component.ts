@@ -11,7 +11,7 @@ import { storageEndpoint } from '../../endpoints/api';
 })
 @Injectable()
 export class HomeComponent {
-  selectedOption: string = "";
+  selectedOption: string = "0";
 
   constructor() {}
 

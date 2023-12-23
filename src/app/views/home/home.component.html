@@ -5,11 +5,19 @@
     <div style="text-align: center;">
         <button (click)="onConfirmClick(spamClassifier)">Classify</button>
         <div class="radio">
-            <input type="radio" name="option" id="option1" [(ngModel)]="selectedOption" value=0>
+            <!-- <input type="radio" name="option" id="option1" [(ngModel)]="selectedOption" value=0 checked />
             <label for="option1">Count Vectorizer</label>
 
-            <input type="radio" name="option" id="option2" [(ngModel)]="selectedOption" value=1>
-            <label for="option2">Naive Bayes</label>
+            <input type="radio" name="option" id="option2" [(ngModel)]="selectedOption" value=1 />
+            <label for="option2">Naive Bayes</label> -->
+            <label class="radio-inline">
+                <input type="radio" name="gender" value="0" [(ngModel)]="selectedOption" checked>
+                Count Vectorizer
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="1" [(ngModel)]="selectedOption">
+                Naive Bayes
+              </label>
         </div>
     </div>
 </div>
