@@ -17,8 +17,16 @@
         <div *ngIf="is_spam !== undefined; then contentBlock else defaultBlock"></div>
         <ng-template #contentBlock>
           <div *ngIf="is_spam; then spamBlock else elseBlock"></div>
-          <ng-template #spamBlock>This email is a spam.</ng-template>
-          <ng-template #elseBlock>This email is a ham you can trust this mail.</ng-template>
+          <ng-template #spamBlock>
+            <div style="color: red;">
+              This email is a spam.
+            </div>
+          </ng-template>
+          <ng-template #elseBlock>
+            <div style="color: red;">
+              This email is a ham you can trust this mail.
+            </div>
+          </ng-template>
         </ng-template>
         <ng-template #defaultBlock></ng-template>
     </div>
