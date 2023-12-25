@@ -12,7 +12,7 @@ import { storageEndpoint } from '../../endpoints/api';
 @Injectable()
 export class HomeComponent {
   selectedOption: string = "0";
-
+  is_spam: Boolean | undefined;
   constructor() {}
 
   onConfirmClick(spamClassifier: SpamClassifierComponent): void {
@@ -27,20 +27,14 @@ export class HomeComponent {
       console.log(request)
       axios.post(classifyUrl, request)
         .then((response) => {
-          // Hier kannst du auf die Vorhersage zugreifen
           const prediction = response.data.prediction;
           console.log("Prediction:", prediction);
-        })
+          this.is_spam = prediction == "1"
+;        })
         .catch((error) => {
           console.error("Error:", error);
         });
-      axios.post(storeUrl, request)
-      .then(() => {
-        console.log("Storing was succesfull");
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      axios.post(storeUrl, request);
     }
   }
 }
