@@ -29,7 +29,7 @@ export class HomeComponent {
         .then((response) => {
           const prediction = response.data.prediction;
           console.log("Prediction:", prediction);
-          this.is_spam = prediction == "1"
+          this.is_spam = prediction == 1
 ;        })
         .catch((error) => {
           console.error("Error:", error);
