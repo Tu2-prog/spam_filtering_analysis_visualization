@@ -12,7 +12,7 @@ import { storageEndpoint } from '../../endpoints/api';
 @Injectable()
 export class HomeComponent {
   selectedOption: string = "0";
-  is_spam: Boolean | undefined;
+  is_spam: boolean | undefined;
   constructor() {}
 
   onConfirmClick(spamClassifier: SpamClassifierComponent): void {
