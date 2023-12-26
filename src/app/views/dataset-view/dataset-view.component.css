@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.content{
+  flex: 1;
+    /* Add additional styling for your content */
+  overflow-y: auto; /* Enables vertical scrolling if content exceeds viewport height */
+  padding: 20px; /* Adjust as needed */
+}

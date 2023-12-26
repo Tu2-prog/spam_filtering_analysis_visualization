@@ -10,6 +10,7 @@ import { DetailsComponent } from './views/details/details.component';
 import { HomeComponent } from './views/home/home.component';
 import { AuthentificationComponent } from './views/authentification/authentification.component';
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { DatasetViewComponent } from './views/dataset-view/dataset-view.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthFormComponent } from './components/auth-form/auth-form.component';
     DetailsComponent,
     HomeComponent,
     AuthentificationComponent,
-    AuthFormComponent
+    AuthFormComponent,
+    DatasetViewComponent
   ],
   imports: [
     BrowserModule,

@@ -7,3 +7,12 @@ input[type="radio"] {
 .radio{
     margin-top: 3rem;
 }
+
+.footer{
+    bottom:0px;
+    width:100%;
+    border: 1px solid;
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
