@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { storageEndpoint } from '../../endpoints/api';
+import { Item } from '../../model';
 
 @Component({
   selector: 'app-dataset-view',
@@ -8,7 +9,7 @@ import { storageEndpoint } from '../../endpoints/api';
   styleUrl: './dataset-view.component.css'
 })
 export class DatasetViewComponent implements OnInit {
-  items: any[] = [];
+  items: Item[] = [];
 
   ngOnInit(): void {
       const storeUrl = storageEndpoint;
@@ -16,7 +17,6 @@ export class DatasetViewComponent implements OnInit {
         .then((response) => {
           const data = response.data;
           this.items = data;
-          console.log(this.items);
         })
         .catch((error)=> {
           console.log(error);
