@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'spam_filtering_analysis_visualization';
+
+  ngOnInit(): void{
+    localStorage.clear()
+  }
 }

@@ -1,0 +1,9 @@
+input[type="radio"] {
+    display: inline;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.radio{
+    margin-top: 3rem;
+}

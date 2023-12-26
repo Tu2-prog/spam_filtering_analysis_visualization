@@ -7,4 +7,6 @@ COPY ./package.json .
 RUN npm install
 COPY . .
 
-CMD ["ng", "serve", "--port=8080"]
+RUN ng analytics disable
+
+CMD ["ng", "serve", "--port=8888"]

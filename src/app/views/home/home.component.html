@@ -1,4 +1,34 @@
 <app-navbar></app-navbar>
-<app-spam-classifier id="spam-text-box" #spamClassifier></app-spam-classifier>
-<button (click)="onConfirmClick(spamClassifier)">Send</button>
+<div style="margin-top: 9rem;" class="classifier-box">
+    <app-spam-classifier id="spam-text-box" #spamClassifier></app-spam-classifier>
+    <br/>
+    <div style="text-align: center;">
+        <button (click)="onConfirmClick(spamClassifier)">Classify</button>
+        <div class="radio">
+            <label class="radio-inline">
+                <input type="radio" name="gender" value="0" [(ngModel)]="selectedOption">
+                Count Vectorizer
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="1" [(ngModel)]="selectedOption">
+                Naive Bayes
+              </label>
+        </div>
+        <div *ngIf="is_spam !== undefined; then contentBlock else defaultBlock"></div>
+        <ng-template #contentBlock>
+          <div *ngIf="is_spam; then spamBlock else elseBlock"></div>
+          <ng-template #spamBlock>
+            <div style="color: red;">
+              This email is a spam.
+            </div>
+          </ng-template>
+          <ng-template #elseBlock>
+            <div style="color: red;">
+              This email is a ham you can trust this mail.
+            </div>
+          </ng-template>
+        </ng-template>
+        <ng-template #defaultBlock></ng-template>
+    </div>
+</div>
 <app-footer></app-footer>
