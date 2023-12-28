@@ -34,7 +34,7 @@ export class HomeComponent {
           if(!this.is_spam){
             request.result = "This is a ham";
           }
-;        })
+        })
         .catch((error) => {
           console.error("Error:", error);
         });
