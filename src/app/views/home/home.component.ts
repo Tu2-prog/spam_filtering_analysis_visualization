@@ -20,7 +20,8 @@ export class HomeComponent {
       const textAreaValue = spamClassifier.getTextAreaValue();
       const request = {
         content: textAreaValue,
-        classifier: this.selectedOption
+        classifier: this.selectedOption,
+        result: "This is a spam"
       }
       const classifyUrl = apiEndpoint + "/classify";
       const storeUrl = storageEndpoint + "/create";
@@ -29,7 +30,10 @@ export class HomeComponent {
         .then((response) => {
           const prediction = response.data.prediction;
           console.log("Prediction:", prediction);
-          this.is_spam = prediction == 1
+          this.is_spam = (prediction == 1)
+          if(!this.is_spam){
+            request.result = "This is a ham";
+          }
 ;        })
         .catch((error) => {
           console.error("Error:", error);

@@ -1,18 +1,22 @@
 <app-navbar></app-navbar>
 <div class="content">
+  If you wish to delete all the entries then please press this button: <button (click)="deleteDataset()">Delete</button>
+  <br/>
   <table>
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Description</th>
+          <th>Content</th>
+          <th>Classifier</th>
+          <th>Result</th>
           <!-- Add more columns as needed -->
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of items">
-          <td>{{ item.classifier }}</td>
           <td>{{ item.content }}</td>
+          <td>{{ item.classifier }}</td>
+          <td>{{ item.result }}</td>
           <!-- Add more columns as needed -->
         </tr>
       </tbody>
