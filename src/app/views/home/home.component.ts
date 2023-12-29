@@ -18,10 +18,10 @@ export class HomeComponent {
   onConfirmClick(spamClassifier: SpamClassifierComponent): void {
     if (spamClassifier) {
       const textAreaValue = spamClassifier.getTextAreaValue();
-      const request = {
+      var request = {
         content: textAreaValue,
         classifier: this.selectedOption,
-        result: "This is a spam"
+        result: ""
       }
       const classifyUrl = apiEndpoint + "/classify";
       const storeUrl = storageEndpoint + "/create";
@@ -34,11 +34,11 @@ export class HomeComponent {
           if(!this.is_spam){
             request.result = "This is a ham";
           }
+          axios.post(storeUrl, request);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          window.alert(error);
         });
-      axios.post(storeUrl, request);
     }
   }
 }
