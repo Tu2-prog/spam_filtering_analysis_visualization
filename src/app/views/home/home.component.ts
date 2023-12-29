@@ -18,7 +18,7 @@ export class HomeComponent {
   onConfirmClick(spamClassifier: SpamClassifierComponent): void {
     if (spamClassifier) {
       const textAreaValue = spamClassifier.getTextAreaValue();
-      let request = {
+      const request = {
         content: textAreaValue,
         classifier: this.selectedOption,
         result: ""
