@@ -26,6 +26,11 @@ export class DatasetViewComponent implements OnInit {
         });
   }
 
+  private convertArrayToCSV(array: any[]): string {
+    const csvRows = array.map(item => Object.values(item).join(','));
+    return ['COntent,Classifier,Result', ...csvRows].join('\n');
+  }
+
   async deleteDataset(): Promise<void> {
     const url = storageEndpoint + "/deleteall";
     try {
@@ -38,5 +43,24 @@ export class DatasetViewComponent implements OnInit {
     } catch (error) {
       window.alert("An error occurred while validating the token");
     }
+  }
+
+  async downloadData(): Promise<void> {
+    const url = storageEndpoint;
+
+    axios.get(url)
+      .then((response) => {
+        const data = response.data;
+        const csvContent = this.convertArrayToCSV(data);
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'data.csv';
+        link.click();
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        window.alert('An error occurred while fetching the data');
+      });
   }
 }
