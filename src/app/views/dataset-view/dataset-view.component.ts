@@ -26,7 +26,7 @@ export class DatasetViewComponent implements OnInit {
         });
   }
 
-  private convertArrayToCSV(array: any[]): string {
+  private convertArrayToCSV(array: Item[]): string {
     const csvRows = array.map(item => Object.values(item).join(','));
     return ['COntent,Classifier,Result', ...csvRows].join('\n');
   }
